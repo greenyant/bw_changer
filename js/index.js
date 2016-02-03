@@ -51,15 +51,22 @@ function loadImage(file) {
 	}
 }
 
+var upload_filename = '';
 function handleFiles(e) {
     var files = e.target.files, file;
+	test_dat = files;
 	if (files && files.length > 0) {
 		file = files[0];
+		upload_filename = file.name;
 		loadImage(file);
 	}
 }
 $(document).on("change","#input",handleFiles);
 
-$(document).ready(function(){
-	
+$(document).on('click','#down_btn',function(){
+	link = this;
+	if(upload_filename != ''){
+		link.href = $("#processed_canvas")[0].toDataURL();
+		link.download = "down.png";
+	}
 });
