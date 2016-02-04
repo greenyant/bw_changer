@@ -7,6 +7,7 @@
 <title>index</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
 <script src="jquery/1.11.2/jquery-1.11.2.min.js"></script>
+<script src="js/bitmapBuilder.js"></script>
 <script src="js/index.js"></script>
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -14,6 +15,15 @@
 <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
+
+<style>
+#in_thres{
+	/*width:100px;*/
+}
+#num_thres{
+	width:100%;
+}
+</style>
 </head>
 
 <body>
@@ -35,11 +45,21 @@
             <h3 class="panel-title">Processed Image</h3>
           </div>
           <div class="panel-body">
-          <a id="down_btn">
-              <button type="button" class="btn btn-xs btn-primary" >
-                Download
-              </button>
-          </a><br />
+          <div class="row">
+               <div class="col-xs-8 col-md-4">
+          			<input type="range" id="in_thres" min="0" max="254" value="125" />
+               </div>
+               <div class="col-xs-4 col-md-4">
+                    <input type="number" id="num_thres" min="0" max="254" value="125" />
+               </div>
+               <div class="col-md-4">
+                  <a id="down_btn">
+                      <button type="button" class="btn btn-xs btn-primary" >
+                        Download
+                      </button>
+                  </a>
+               </div>
+          </div>
           <canvas width="500" height="300" id="processed_canvas"></canvas>
           </div>
         </div>
